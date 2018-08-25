@@ -23,7 +23,7 @@ router.post('/',function(req, res){
   var lyric = body.lyric;
 
   console.log(body);
-  var sql = {"ID":id,"title":title,"artist":artist,"date":date,"image",image,"lyric",lyric};
+  var sql = {"ID":id,"title":title,"artist":artist,"date":date,"image":image,"lyric":lyric};
   var registerquery = connection.query('insert into music set ?',sql, function(err,rows){
     if(err){
       console.log(err)
