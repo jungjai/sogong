@@ -18,10 +18,12 @@ router.post('/',function(req, res){
   var token = body.token;
   //const respond = (token) => {
   var searchQuery = connection.query('select * from music where ID = ?',[id], function(err,rows){
-    if(err)
+    if(err) throw err
+    if(rows.length < 1)
     {
-      console.log(err)
-      res.json({"status":"ERROR"})
+      var msg = {"status": "ERROR"}
+      res.json(msg)
+      return;
     }
     else {
       console.log(rows.length)
