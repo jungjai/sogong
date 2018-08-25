@@ -15,9 +15,9 @@ connection.connect();
 router.post('/',function(req, res){
   var body = req.body;
   var id = body.ID;
-  var token = body.token;
-  const respond = (token) => {
-  var searchQuery = connection.query('select * from music where ID = ?',[token.data],function(err,rows){
+//  var token = body.token;
+//  const respond = (token) => {
+  var searchQuery = connection.query('select * from music where ID = ?',[id], function(err,rows){
     if(err)
     {
       console.log(err)
@@ -37,10 +37,9 @@ router.post('/',function(req, res){
 
         jsonArray.push(json);
       }
-
-     res.send(JSON.parse(JSON.stringify(jsonArray)));
+      res.send(JSON.parse(JSON.stringify(jsonArray)));
     }
   })
-  }
+//  }
 })
 module.exports = router;
