@@ -11,7 +11,6 @@ var connection = mysql.createConnection({
   database : 'sogongdb'
 })
 
-
 connection.connect();
 router.post('/',function(req, res){
   var body = req.body;
