@@ -26,9 +26,6 @@ router.post('/',function(req, res){
     else {
       console.log(rows.length)
       var jsonArray = new Array();
-      var json = new Object;
-      json.status = "OK";
-      jsonArray.push(json);
       
       for(var i = 0 ; i < rows.length ; i++)
       {
