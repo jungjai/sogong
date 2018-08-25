@@ -24,7 +24,7 @@ router.post('/',function(req, res){
       res.json({"status":"ERROR"})
     }
     else {
-      console(row.length)
+      console(rows.length)
       var jsonArray = new Array();
       for(var i = 0 ; i < rows.length ; i++)
       {
