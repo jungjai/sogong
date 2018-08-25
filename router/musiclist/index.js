@@ -15,8 +15,8 @@ connection.connect();
 router.post('/',function(req, res){
   var body = req.body;
   var id = body.ID;
-//  var token = body.token;
-//  const respond = (token) => {
+  var token = body.token;
+  const respond = (token) => {
   var searchQuery = connection.query('select * from music where ID = ?',[id], function(err,rows){
     if(err)
     {
@@ -26,6 +26,10 @@ router.post('/',function(req, res){
     else {
       console.log(rows.length)
       var jsonArray = new Array();
+      var json = new Object;
+      json.status = "OK";
+      jsonArray.push(json);
+      
       for(var i = 0 ; i < rows.length ; i++)
       {
         var json = new Object();
@@ -41,6 +45,6 @@ router.post('/',function(req, res){
       res.send(JSON.parse(JSON.stringify(jsonArray)));
     }
   })
-//  }
+  }
 })
 module.exports = router;
