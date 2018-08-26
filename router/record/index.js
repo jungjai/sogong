@@ -19,7 +19,7 @@ router.post('/',function(req, res){
   var name = body.name;
 
   console.log(body);
-/*  var sql = {"ID":id,"record":record,"date":date,"name":name}
+  var sql = {"ID":id,"record":record,"date":date,"name":name}
   var registerquery = connection.query('insert into record set ?',sql, function(err,rows){
     if(err){
       console.log(err)
@@ -29,6 +29,6 @@ router.post('/',function(req, res){
     }
     var msg = {"status":"OK"}
     res.json(msg)
-  })*/
+  })
 })
 module.exports = router;
