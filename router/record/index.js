@@ -5,6 +5,7 @@ var router = express.Router();
 var path = require('path')
 var multer  = require('multer')
 var upload = multer({ dest: 'uploads/' })
+var PythonShell = require('python-shell');
 
 var connection = mysql.createConnection({
   host : 'localhost',
@@ -16,19 +17,31 @@ var connection = mysql.createConnection({
 connection.connect();
 router.post('/', upload.single('record'), function(req, res){
   console.log(req.file);
+
+  var options={
+    mode : 'json',
+    pythonPath : '',
+    pathonOptions : ['-u'],
+    scriptPath : '',
+    args : [req.file]
+  };
+
+  PythonShell.run('MusicExtractor.py', options, function (err, results) {
+    if(err) throw err;
+
+    console.log('results : %s', results);
+  });
+
 });
 /*
   var body = req.body;
   var id = body.ID;
-//  var record = body.record;
+  var record = body.record;
   var date = body.date;
   var name = body.name;
 
-  app.use(multer({
-    onFileUp
-  }))
   console.log(body);
-  var PythonShell = require('python-shell');
+
 
   var options={
     mode : 'json',
