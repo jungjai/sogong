@@ -17,13 +17,16 @@ var connection = mysql.createConnection({
 connection.connect();
 router.post('/', upload.single('record'), function(req, res){
   console.log(req.file);
+  var path='/home/ubuntu/sogong/uploads/' + req.file.filename;
+
+  console.log(path);
 
   var options={
-    mode : 'json',
-    pythonPath : '',
+    mode : 'text',
+    pythonPath : '/usr/bin/python3',
     pathonOptions : ['-u'],
-    scriptPath : '',
-    args : [req.file]
+    scriptPath : '/home/ubuntu/sogong',
+    args : [path]
   };
 
   PythonShell.run('MusicExtractor.py', options, function (err, results) {
