@@ -12,7 +12,7 @@ var connection = mysql.createConnection({
 })
 
 connection.connect();
-/*router.post('/store',function(req, res){
+router.post('/',function(req, res){
   var body = req.body;
   var id = body.ID;
   var name = body.name;
@@ -31,7 +31,8 @@ connection.connect();
     var msg = {"status":"OK"}
     res.json(msg)
   })
-})*/
+})
+/*
 router.post('/',function(req, res){
   var body = req.body;
   var name = body.name;
@@ -54,5 +55,5 @@ router.post('/',function(req, res){
       return;
      }
    })
-})
+})*/
 module.exports = router;
