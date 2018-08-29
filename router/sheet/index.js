@@ -1,3 +1,4 @@
+/*
 var express = require('express')
 var mysql = require('mysql')
 var app = express()
@@ -32,7 +33,7 @@ router.post('/',function(req, res){
     res.json(msg)
   })
 })
-/*
+
 router.post('/',function(req, res){
   var body = req.body;
   var name = body.name;
@@ -55,5 +56,5 @@ router.post('/',function(req, res){
       return;
      }
    })
-})*/
-module.exports = router;
+})
+module.exports = router;*/
