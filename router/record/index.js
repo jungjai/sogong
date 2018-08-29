@@ -6,7 +6,7 @@ var path = require('path')
 var multer  = require('multer')
 var upload = multer({ dest: 'uploads/' })
 var PythonShell = require('python-shell');
-
+/*
 var connection = mysql.createConnection({
   host : 'localhost',
   port : '3306',
@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
   password : 'dlwjdwo95!',
   database : 'sogongdb'
 })
-connection.connect();
+connection.connect();*/
 router.post('/', upload.single('record'), function(req, res){
   console.log(req.file);
   var path='/home/ubuntu/sogong/uploads/' + req.file.filename;
