@@ -28,7 +28,7 @@ router.post('/',function(req, res){
       res.json(msg)
       return;
     }
-    var msg = {"status":"OK"}
+    var msg = {"status":"OK", "ID":id,"name":name,"date":date,"data":data}
     res.json(msg)
   })
 })

@@ -29,10 +29,12 @@ router.post('/', upload.single('record'), function(req, res){
     args : [path]
   };
 
-  PythonShell.run('MusicExtractor.py', options, function (err, results) {
+  PythonShell.run('MusicExtractor.py', options, function (err, data) {
     if(err) throw err;
 
-    console.log('results : %s', results);
+    console.log('results : %s', data);
+    var msg = {"status":"OK", "data":data}
+    res.json(msg)
   });
 
 });

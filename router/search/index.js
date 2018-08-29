@@ -30,8 +30,9 @@ router.post('/',function(req, res){
       res.json(msg)
       return;
     }
-    var msg = {"status":"OK"}
-    res.json(msg)
+    else {
+      var msg = {"status":"OK"}
+      res.json(msg)
   })
 })
 module.exports = router;
