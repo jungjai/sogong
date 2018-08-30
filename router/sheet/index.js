@@ -1,4 +1,3 @@
-/*
 var express = require('express')
 var mysql = require('mysql')
 var app = express()
@@ -13,7 +12,7 @@ var connection = mysql.createConnection({
 })
 
 connection.connect();
-router.post('/',function(req, res){
+router.post('/store',function(req, res){
   var body = req.body;
   var id = body.ID;
   var name = body.name;
@@ -21,7 +20,7 @@ router.post('/',function(req, res){
   var data = body.data;
 
   console.log(body);
-  var sql = {"ID":id,"name":name,"date":date,"data":data};
+  var sql = {"ID":id,"name":name,"date":date,"data":data,"search":"1"};
   var registerquery = connection.query('insert into sheet set ?',sql, function(err,rows){
     if(err){
       console.log(err)
@@ -34,11 +33,10 @@ router.post('/',function(req, res){
   })
 })
 
-router.post('/',function(req, res){
-  var body = req.body;
-  var name = body.name;
+router.post('/load',function(req, res){
+  var search = "1"
 
-  var searchQuery = connection.query('select * from sheet where name = ?',[name], function(err,rows){
+  var searchQuery = connection.query('select * from sheet where search = ?',[search], function(err,rows){
     if(err) throw err
     if(rows.length < 1)
     {
@@ -57,4 +55,4 @@ router.post('/',function(req, res){
      }
    })
 })
-module.exports = router;*/
+module.exports = router;
